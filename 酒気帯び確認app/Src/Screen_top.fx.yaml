@@ -1,0 +1,299 @@
+Screen_top As screen:
+    BackgroundImage: =
+    Height: |
+        =Max(App.Height, App.MinScreenHeight)
+    LoadingSpinnerColor: =RGBA(98, 100, 167, 1)
+    OnVisible: |-
+        =ClearCollect(col,Filter(酒気帯び確認データ,Mid(dateName,12) = (Last(ForAll(Split(User().FullName," "), {Result: ThisRecord.Value}).Result).Result&" "&First(ForAll(Split(User().FullName," "), {Result: ThisRecord.Value}).Result).Result)));
+        Reset(TbTime);
+        Reset(CbCar);
+        Reset(DatePickerB);
+        Reset(Toggle1B);
+        Reset(Toggle2B);
+        Reset(HowCb);
+        Reset(CheckCb);
+        Set(popup,false);
+        Reset(TbTimeA);
+        Reset(CbCarA);
+        Reset(DatePickerA);
+        Reset(Toggle1A);
+        Reset(Toggle2A);
+        Reset(HowCbA);
+        Reset(CheckCbA);
+        Set(popup,false);
+        Set(Bt,"");
+        Set(At,"")
+
+    before As ボタン:
+        BorderColor: =RGBA(196, 172, 92, 1)
+        BorderRadius: =10
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        ButtonType: ='Button.ButtonType'.Primary
+        DisabledFillColor: =RGBA(196, 172, 92, 1)
+        DisplayMode: =DisplayMode.Edit
+        FillColor: =RGBA(255, 234, 166, 1)
+        FontSize: =30
+        FontWeight: =FontWeight.Bold
+        Height: =100
+        HoverBorderColor: =RGBA(196, 172, 92, 1)
+        HoverFillColor: =RGBA(196, 172, 92, 1)
+        OnSelect: |
+            =TbTime.Value="";
+            Reset(CbCar);
+            Reset(DatePickerB);
+            Reset(Toggle1B);
+            Reset(Toggle2B);
+            Reset(HowCb);
+            Reset(CheckCb);
+            Set(popup,false);
+            Set(tday,Today());
+            ClearCollect(
+                col,
+                Filter(
+                    col,
+                    Mid(
+                        dateName,
+                        12
+                    ) = (Last(
+                        ForAll(Split(
+                            User().FullName,
+                            " "
+                        ), {Result: ThisRecord.Value}).Result
+                    ).Result & " " & First(
+                        ForAll(Split(
+                            User().FullName,
+                            " "
+                        ), {Result: ThisRecord.Value}).Result
+                    ).Result)
+                )
+            );
+            UpdateContext({youbi: Weekday(Today())});
+            UpdateContext(
+                {
+                    _dn1: Text(
+                        Today() - 1,
+                        "yyyy/mm/dd"
+                    ) & " " & Concatenate(
+                        Last(
+                            ForAll(Split(
+                                User().FullName,
+                                " "
+                            ), {Result: ThisRecord.Value}).Result
+                        ).Result,
+                        " ",
+                        First(
+                            ForAll(Split(
+                                User().FullName,
+                                " "
+                            ), {Result: ThisRecord.Value}).Result
+                        ).Result
+                    )
+                }
+            );
+            UpdateContext(
+                {
+                    _dn2: Text(
+                        Today() - 2,
+                        "yyyy/mm/dd"
+                    ) & " " & Concatenate(
+                        Last(
+                            ForAll(Split(
+                                User().FullName,
+                                " "
+                            ), {Result: ThisRecord.Value}).Result
+                        ).Result,
+                        " ",
+                        First(
+                            ForAll(Split(
+                                User().FullName,
+                                " "
+                            ), {Result: ThisRecord.Value}).Result
+                        ).Result
+                    )
+                }
+            );
+            UpdateContext(
+                {
+                    _dn3: Text(
+                        Today() - 3,
+                        "yyyy/mm/dd"
+                    ) & " " & Concatenate(
+                        Last(
+                            ForAll(Split(
+                                User().FullName,
+                                " "
+                            ), {Result: ThisRecord.Value}).Result
+                        ).Result,
+                        " ",
+                        First(
+                            ForAll(Split(
+                                User().FullName,
+                                " "
+                            ), {Result: ThisRecord.Value}).Result
+                        ).Result
+                    )
+                }
+            );
+            IfError(
+                UpdateContext(
+                    {
+                        _b1: LookUp(
+                            col,
+                            dateName = _dn1
+                        ).beforeTime,
+                        _a1: LookUp(
+                            col,
+                            dateName = _dn1
+                        ).afterTime
+                    }
+                ),
+                UpdateContext(
+                    {
+                        _b1: "",
+                        _a1: ""
+                    }
+                )
+            );
+            IfError(
+                UpdateContext(
+                    {
+                        _b2: LookUp(
+                            col,
+                            dateName = _dn2
+                        ).beforeTime,
+                        _a2: LookUp(
+                            col,
+                            dateName = _dn2
+                        ).afterTime
+                    }
+                ),
+                UpdateContext(
+                    {
+                        _b2: "",
+                        _a2: ""
+                    }
+                )
+            );
+            IfError(
+                UpdateContext(
+                    {
+                        _b3: LookUp(
+                            col,
+                            dateName = _dn3
+                        ).beforeTime,
+                        _a3: LookUp(
+                            col,
+                            dateName = _dn3
+                        ).afterTime
+                    }
+                ),
+                UpdateContext(
+                    {
+                        _b3: "",
+                        _a3: ""
+                    }
+                )
+            );
+            If(
+                youbi <> 2,
+                If(
+                    Or(
+                        IsBlank(_a1),
+                        IsBlank(_b1)
+                    ),
+                    Navigate(
+                        Screen_false3,
+                        ScreenTransition.Fade
+                    ),
+                    Navigate(
+                        Screen_before,
+                        ScreenTransition.Fade
+                    )
+                )
+            );
+            If(
+                youbi = 2,
+                If(
+                    Or(
+                        IsBlank(_a3),
+                        IsBlank(_b3)
+                    ),
+                    Navigate(
+                        Screen_false4,
+                        ScreenTransition.Fade
+                    ),
+                    If(
+                        Or(
+                            IsBlank(_a2),
+                            IsBlank(_b2)
+                        ),
+                        Navigate(
+                            Screen_false5,
+                            ScreenTransition.Fade
+                        ),
+                        Navigate(
+                            Screen_before,
+                            ScreenTransition.Fade
+                        )
+                    )
+                )
+            );
+        PaddingTop: =0.00
+        PCFTeamsTheme: =TeamsTheme.Default
+        PressedBorderColor: =RGBA(196, 172, 92, 1)
+        PressedFillColor: =RGBA(196, 172, 92, 1)
+        Text: ="運転前"
+        TextColor: =RGBA(49, 50, 83, 1)
+        Width: =Parent.Width*50%
+        X: =(Parent.Width - after.Width)/2
+        Y: =(Parent.Height-after.Y-before.Height)/2
+        ZIndex: =1
+
+    after As ボタン:
+        BorderRadius: =10
+        ButtonType: ='Button.ButtonType'.Primary
+        DisplayMode: =DisplayMode.Edit
+        FillColor: =RGBA(197, 199, 240, 1)
+        FontSize: =30
+        FontWeight: =FontWeight.Bold
+        Height: =100
+        OnSelect: |-
+            =Navigate(Screen_after,ScreenTransition.Fade);
+            Set(tday,Today());
+        PaddingTop: =0.00
+        PCFTeamsTheme: =TeamsTheme.Default
+        Text: ="運転後"
+        TextColor: =RGBA(49, 50, 83, 1)
+        Width: =Parent.Width*50%
+        X: =(Parent.Width - before.Width)/2
+        Y: =(Parent.Height-after.Height)/2
+        ZIndex: =2
+
+    Rectangle1 As rectangle:
+        BorderColor: =RGBA(243, 242, 241, 1)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        DisabledFill: =RGBA(56, 96, 178, 1)
+        Fill: =RGBA(56, 96, 178, 1)
+        FocusedBorderColor: =RGBA(98, 100, 167, 1)
+        Height: =150
+        HoverFill: =RGBA(56, 96, 178, 1)
+        PressedFill: =RGBA(56, 96, 178, 1)
+        Width: =Parent.Width
+        ZIndex: =4
+
+    Label1 As ラベル:
+        Alignment: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        DisplayMode: =DisplayMode.Edit
+        FontSize: =34
+        FontWeight: =FontWeight.Bold
+        Height: =150
+        PCFTeamsTheme: =TeamsTheme.Default
+        Text: ="酒気帯び確認入力フォーム"
+        Width: =Parent.Width
+        X: =00
+        Y: =00
+        ZIndex: =5
+

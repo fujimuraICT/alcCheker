@@ -1,0 +1,73 @@
+{
+  "QualifiedValues": [
+    {
+      "Kind": "default.cds_cr807_29e4cf5b91634eea9a999f8f906a6ee3_forms",
+      "Namespace": "蓄積データ (フォーム)",
+      "Values": {
+        "Information": "1ee5f8c4-6c7e-4851-882a-dfdfd0e64e97"
+      }
+    },
+    {
+      "Kind": "default.cds_cr807_sample1_forms",
+      "Namespace": "sample1S (フォーム)",
+      "Values": {
+        "Information": "0588d5db-69fe-4c6c-894a-73f3e7cab462"
+      }
+    },
+    {
+      "Kind": "default.cds_cr807_de80858ef1d04e409e032cb92055ebb5_forms",
+      "Namespace": "社員マスタ (フォーム)",
+      "Values": {
+        "Information": "72d6e8ad-f904-4f68-b3b9-c893f64b44e1"
+      }
+    },
+    {
+      "Kind": "default.cds_cr807_ccac840c6df942c08b8c3ec643b92ee1_forms",
+      "Namespace": "車両 (フォーム)",
+      "Values": {
+        "Information": "cb87d2aa-0979-49ce-8285-76139461be7a"
+      }
+    },
+    {
+      "Kind": "default.cds_cr807_9c51ff58265b43ea8673f36e7fe928f6_forms",
+      "Namespace": "タイミング (フォーム)",
+      "Values": {
+        "Information": "d9605d49-077c-49fe-8877-f17a27b5ff47"
+      }
+    },
+    {
+      "Kind": "default.cds_systemuser_forms",
+      "Namespace": "ユーザー  (フォーム)",
+      "Values": {
+        "アプリケーション ユーザー": "d26924ef-4d80-46f7-ab1d-e6ae80a54ce8",
+        "ユーザー": "c2cd9e55-d4b4-4b55-9951-16ead79643e5",
+        "ユーザー階層のタイル フォーム": "c68d6c09-d7a7-4959-8d0f-44b8cff9b452",
+        "情報": "094fb08a-77bb-49e0-b7ea-8dbddfd01294"
+      }
+    },
+    {
+      "Kind": "default.cds_cr807_316a58f7fd874c94ad746e3cc6cd507c_forms",
+      "Namespace": "確認方法_1 (フォーム)",
+      "Values": {}
+    },
+    {
+      "Kind": "default.cds_cr807_316a58f7fd874c94ad746e3cc6cd507c_forms",
+      "Namespace": "確認方法 (フォーム)",
+      "Values": {}
+    },
+    {
+      "Kind": "default.cds_cr807_5e22c8d9765e4e349486cb73f5624496_forms",
+      "Namespace": "確認方法 (フォーム)1",
+      "Values": {
+        "Information": "3e277030-1d67-4ddd-b4ee-cf03f3bfc012"
+      }
+    },
+    {
+      "Kind": "default.cds_cr807_5e22c8d9765e4e349486cb73f5624496_forms",
+      "Namespace": "確認方法 (フォーム)2",
+      "Values": {
+        "Information": "3e277030-1d67-4ddd-b4ee-cf03f3bfc012"
+      }
+    }
+  ]
+}

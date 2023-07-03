@@ -1,0 +1,625 @@
+Screen_after As screen:
+    LoadingSpinnerColor: =RGBA(98, 100, 167, 1)
+    OnVisible: |
+        =//TbTimeA.Value = At;
+        Reset(CbCarA);
+        Reset(DatePickerA);
+        Reset(Toggle1A);
+        Reset(Toggle2A);
+        Reset(HowCbA);
+        Reset(CheckCbA);
+        Set(popup,false);
+
+    BackColorA As rectangle:
+        BorderColor: =RGBA(243, 242, 241, 1)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        DisabledFill: =RGBA(197, 199, 240, 1)
+        Fill: =RGBA(197, 199, 240, 1)
+        FocusedBorderColor: =RGBA(98, 100, 167, 1)
+        Height: =150
+        HoverFill: =RGBA(197, 199, 240, 1)
+        PressedFill: =RGBA(197, 199, 240, 1)
+        Width: =Parent.Width
+        ZIndex: =1
+
+    LabelUserA As label:
+        BorderColor: =RGBA(0, 18, 107, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Height: =34
+        Size: =16
+        Text: ="ユーザー名"
+        Width: =128
+        X: =39
+        Y: =164
+        ZIndex: =2
+
+    LbNameA As ラベル:
+        AutoHeight: =true
+        DisplayMode: =DisplayMode.Edit
+        FontSize: =30
+        Height: =54
+        PaddingTop: =0.00
+        PCFTeamsTheme: =TeamsTheme.Default
+        Text: |-
+            =Concatenate(Last(ForAll(Split(User().FullName," "), {Result: ThisRecord.Value}).Result).Result," ",First(ForAll(Split(User().FullName," "), {Result: ThisRecord.Value}).Result).Result)
+        Width: =192
+        X: =39
+        Y: =200
+        ZIndex: =3
+
+    LbMailA As ラベル:
+        AutoHeight: =false
+        DisplayMode: =DisplayMode.Edit
+        FontSize: =16
+        Height: =48
+        PaddingTop: =0.00
+        PCFTeamsTheme: =TeamsTheme.Default
+        Text: =User().Email
+        Width: =476
+        Wrap: =false
+        X: =39
+        Y: =250
+        ZIndex: =4
+
+    LbDateA As ラベル:
+        Alignment: =Align.Left
+        AutoHeight: =true
+        DisplayMode: =DisplayMode.Edit
+        FontSize: =30
+        Height: =70
+        PaddingTop: =0.00
+        PCFTeamsTheme: =TeamsTheme.Default
+        Text: ="日付"
+        Width: =84
+        X: =39
+        Y: =LbMailA.Y+LbMailA.Height+40
+        ZIndex: =5
+
+    LbCarA As ラベル:
+        Alignment: =Align.Left
+        AutoHeight: =true
+        DisplayMode: =DisplayMode.Edit
+        FontSize: =30
+        Height: =70
+        PaddingTop: =0.00
+        PCFTeamsTheme: =TeamsTheme.Default
+        Text: ="車両"
+        Width: =84
+        X: =39
+        Y: =LbMailA.Y+LbMailA.Height+120
+        ZIndex: =6
+
+    LbTimeA As ラベル:
+        Alignment: =Align.Left
+        AutoHeight: =true
+        DisplayMode: =DisplayMode.Edit
+        FontSize: =30
+        Height: =70
+        PaddingTop: =0.00
+        PCFTeamsTheme: =TeamsTheme.Default
+        Text: ="時間"
+        Width: =84
+        X: =39
+        Y: =LbMailA.Y+LbMailA.Height+200
+        ZIndex: =7
+
+    DatePickerA As 日付の選択:
+        DisplayMode: =DisplayMode.Edit
+        FontSize: =30
+        FontWeight: =FontWeight.Bold
+        Height: =70
+        IconSize: =24
+        OnSelect: =Today()
+        PaddingTop: =0.00
+        PCFTeamsTheme: =TeamsTheme.Default
+        ShowGoToToday: =true
+        Value: |
+            =tday
+        Width: =Max(300,Parent.Width/2.5)
+        X: =Parent.Width/2
+        Y: =LbMailA.Y+LbMailA.Height+40
+        ZIndex: =8
+
+    "CbCarA As 'コンボ ボックス'.pcfdataset":
+        AllowSearching: =true
+        DefaultSelectedItems: =LookUp(com_col,Title=Text(LbNameA.Text))
+        DisplayMode: =DisplayMode.Edit
+        FontSize: =26
+        Height: =70
+        Items: =com_col
+        OnSelect: =
+        PaddingTop: =0.00
+        PCFTeamsTheme: =TeamsTheme.Default
+        Width: =Max(300,Parent.Width/2.5)
+        X: =Parent.Width/2
+        Y: =LbMailA.Y+LbMailA.Height+120
+        ZIndex: =9
+
+        carNo2_1 As pcfDataField.textualColumn:
+            FieldDisplayName: ="carNo"
+            FieldName: ="carNo"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Order: =2
+            ZIndex: =6
+
+    "TbTimeA As 'テキスト ボックス'":
+        DisplayMode: =DisplayMode.Edit
+        FontSize: =30
+        Height: =70
+        OnChange: |-
+            =Text(Now(),"hh:mm")
+        OnSelect: |-
+            =UpdateContext({time:Text(Now(),"hh:mm")});
+            Set(At,time)
+        PaddingTop: =0.00
+        PCFTeamsTheme: =TeamsTheme.Default
+        Value: =At
+        Width: =Max(300,Parent.Width/2.5)
+        X: =Parent.Width/2
+        Y: =LbMailA.Y+LbMailA.Height+200
+        ZIndex: =10
+
+    LbHowA As ラベル:
+        Alignment: =Align.Left
+        AutoHeight: =true
+        DisplayMode: =DisplayMode.Edit
+        FontSize: =30
+        Height: =70
+        PaddingTop: =0.00
+        PCFTeamsTheme: =TeamsTheme.Default
+        Text: ="確認方法"
+        Width: =164
+        X: =39
+        Y: =LbMailA.Y+LbMailA.Height+440
+        ZIndex: =11
+
+    LbDetecA As ラベル:
+        Alignment: =Align.Left
+        AutoHeight: =true
+        DisplayMode: =DisplayMode.Edit
+        FontSize: =30
+        Height: =70
+        PaddingTop: =0.00
+        PCFTeamsTheme: =TeamsTheme.Default
+        Text: ="検知器"
+        Width: =128
+        X: =39
+        Y: =LbMailA.Y+LbMailA.Height+280
+        ZIndex: =12
+
+    LbJudgeA As ラベル:
+        Alignment: =Align.Left
+        AutoHeight: =true
+        DisplayMode: =DisplayMode.Edit
+        FontSize: =30
+        Height: =70
+        PaddingTop: =0.00
+        PCFTeamsTheme: =TeamsTheme.Default
+        Text: ="結果"
+        Width: =84
+        X: =39
+        Y: =LbMailA.Y+LbMailA.Height+360
+        ZIndex: =13
+
+    Toggle1A As toggleSwitch:
+        BorderColor: =RGBA(0, 18, 107, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        FalseFill: =RGBA(128, 130, 133, 1)
+        FalseText: ="なし"
+        HandleFill: =RGBA(255, 255, 255, 1)
+        Height: =70
+        Size: =30
+        TrueFill: =RGBA(197, 199, 240, 1)
+        TrueText: ="あり"
+        Width: =Max(300,Parent.Width/2.5)
+        X: =Parent.Width/2
+        Y: =LbMailA.Y+LbMailA.Height+280
+        ZIndex: =14
+
+    Toggle2A As toggleSwitch:
+        BorderColor: =RGBA(0, 18, 107, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        FalseFill: =RGBA(128, 130, 133, 1)
+        FalseText: ="×"
+        HandleFill: =RGBA(255, 255, 255, 1)
+        Height: =70
+        Size: =30
+        TrueFill: =RGBA(197, 199, 240, 1)
+        TrueText: ="〇"
+        Width: =Max(300,Parent.Width/2.5)
+        X: =Parent.Width/2
+        Y: =LbMailA.Y+LbMailA.Height+360
+        ZIndex: =15
+
+    "HowCbA As 'コンボ ボックス'.pcfdataset":
+        AllowMultiSelect: =false
+        AllowSearching: =true
+        DefaultSelectedItems: =If(Or(LbNameA.Text="杉本 義夫",LbNameA.Text="小島 宏之",LbNameA.Text="本山 塁",LbNameA.Text="西田 敦",LbNameA.Text="藤村 英明"), Last(FirstN(how_col,1)),Last(FirstN(how_col,3)))
+        DisplayMode: =DisplayMode.Edit
+        FontSize: =30
+        Height: =70
+        Items: =how_col
+        OnChange: =
+        OnSelect: =
+        PaddingTop: =0.00
+        PCFTeamsTheme: =TeamsTheme.Default
+        Width: =Max(300,Parent.Width/2.5)
+        X: =Parent.Width/2
+        Y: =LbMailA.Y+LbMailA.Height+440
+        ZIndex: =16
+
+        Title2_1 As pcfDataField.textualColumn:
+            FieldDisplayName: ="Title"
+            FieldName: ="Title"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Order: =1
+            ZIndex: =12
+
+    LbChackA As ラベル:
+        Alignment: =Align.Left
+        AutoHeight: =true
+        DisplayMode: =DisplayMode.Edit
+        FontSize: =30
+        Height: =70
+        PaddingTop: =0.00
+        PCFTeamsTheme: =TeamsTheme.Default
+        Text: ="確認者"
+        Width: =128
+        X: =39
+        Y: =LbMailA.Y+LbMailA.Height+520
+        ZIndex: =17
+
+    "CheckCbA As 'コンボ ボックス'.pcfdataset":
+        AllowMultiSelect: =false
+        AllowSearching: =true
+        DefaultSelectedItems: =FirstN(運行安全管理者,1)
+        DisplayMode: =DisplayMode.Edit
+        FontSize: =30
+        Height: =70
+        Items: =check_col
+        OnSelect: =
+        PaddingTop: =0.00
+        PCFTeamsTheme: =TeamsTheme.Default
+        Width: =Max(300,Parent.Width/2.5)
+        X: =Parent.Width/2
+        Y: =LbMailA.Y+LbMailA.Height+520
+        ZIndex: =18
+
+        Title3_1 As pcfDataField.textualColumn:
+            FieldDisplayName: ="Title"
+            FieldName: ="Title"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Order: =1
+            ZIndex: =13
+
+    titleA As ラベル:
+        Alignment: =Align.Center
+        DisplayMode: =DisplayMode.Edit
+        FontSize: =40
+        FontWeight: =FontWeight.Bold
+        Height: =150
+        PCFTeamsTheme: =TeamsTheme.Default
+        Text: ="運転後"
+        Width: =Parent.Width
+        X: =0
+        Y: =0
+        ZIndex: =19
+
+    submitA As icon.Check:
+        BorderColor: =RGBA(0, 18, 107, 1)
+        Color: =RGBA(0, 18, 107, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        Height: =100
+        Icon: =Icon.Check
+        OnSelect: |-
+            =ClearCollect(col,Filter(酒気帯び確認データ,Mid(dateName,12) = (Last(ForAll(Split(User().FullName," "), {Result: ThisRecord.Value}).Result).Result&" "&First(ForAll(Split(User().FullName," "), {Result: ThisRecord.Value}).Result).Result)));
+            If(
+                UploadedImage2.Image <> SampleImage,
+                Set(
+                    imageStr2,
+                    Substitute(
+                        JSON(
+                            UploadedImage2.Image,
+                            JSONFormat.IgnoreBinaryData
+                        ),
+                        """",
+                        ""
+                    )
+                ),
+                Set(
+                    imageStr2,
+                    SampleImage
+                )
+            );
+            UpdateContext(
+                {
+                    DN: Text(
+                        DatePickerA.Value,
+                        "yyyy/mm/dd"
+                    ) & " " & LbNameA
+                }
+            );
+            /*ClearCollect(
+                sake_col,
+                酒気帯び確認データ
+            );*/
+            UpdateContext({fVal: fvconv_2.FullToHalf});
+            If(
+                Find(
+                    ":",
+                    fVal
+                ) = 2,
+                UpdateContext(
+                    {
+                        fVal: Concatenate(
+                            "0",
+                            fVal
+                        )
+                    }
+                )
+            );
+            If(
+                Len(fVal) < 5,
+                UpdateContext(
+                    {
+                        fVal: Concatenate(
+                            Left(
+                                fVal,
+                                3
+                            ),
+                            "0",
+                            Right(
+                                fVal,
+                                1
+                            )
+                        )
+                    }
+                )
+            );
+            If(
+                And(
+                    Toggle1A.Value = true,
+                    Toggle2A.Value = true,
+                    Not(IsBlank(TbTimeA.Value)),
+                    Text(HowCbA.Selected.Title) <> "",
+                    Text(CheckCbA.Selected.Title) <> ""
+                ),
+                If(
+                    IsBlank(
+                        LookUp(
+                            col,
+                            dateName = DN
+                        ).dateName
+                    ),
+                    Navigate(
+                        Screen_false2,
+                        ScreenTransition.Fade
+                    ),
+                    If(
+                        IsBlank(
+                            LookUp(
+                                酒気帯び確認データ,
+                                dateName = DN
+                            ).afterName
+                        ),
+                        Patch(
+                            酒気帯び確認データ,
+                            LookUp(
+                                酒気帯び確認データ,
+                                dateName = DN
+                            ),
+                            {
+                                dateName: DN,
+                                No: Text(CbCarA.Selected.carNo),
+                                afterTime: Text(fVal),
+                                afterName: Text(LbNameA.Text),
+                                afterHow: Text(HowCbA.Selected.Title),
+                                afterCheck: Text(CheckCbA.Selected.Title),
+                                afterDetec: Text(Toggle1A.Value),
+                                company: "藤村組",
+                                afterJudge: Text(Toggle2A.Value),
+                                afterImage: imageStr2
+                            }
+                        );
+                        Navigate(
+                            Screen_true,
+                            ScreenTransition.Fade
+                        ),
+                        Set(
+                            popup,
+                            true
+                        );
+                    )
+                ),
+                Notify(
+                    "未入力欄があります",
+                    NotificationType.Error
+                )
+            )
+        Width: =100
+        X: =Parent.Width-Self.Width
+        ZIndex: =20
+
+    backA As icon.BackArrow:
+        BorderColor: =RGBA(0, 18, 107, 1)
+        Color: =RGBA(0, 18, 107, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        Height: =100
+        Icon: =Icon.BackArrow
+        OnSelect: =Back()
+        Width: =100
+        Y: =3
+        ZIndex: =21
+
+    ButtonAyes As ボタン:
+        DisplayMode: =DisplayMode.Edit
+        FontSize: =26
+        Height: =70
+        OnSelect: |-
+            =Patch(
+                            酒気帯び確認データ,
+                            LookUp(
+                                酒気帯び確認データ,
+                                dateName = DN
+                            ),
+                            {
+                                dateName: DN,
+                                No: Text(CbCarA.Selected.carNo),
+                                afterTime: Text(fVal),
+                                afterName: Text(LbNameA.Text),
+                                afterHow: Text(HowCbA.Selected.Title),
+                                afterCheck: Text(CheckCbA.Selected.Title),
+                                afterDetec: Text(Toggle1A.Value),
+                                company: "藤村組",
+                                afterJudge: Text(Toggle2A.Value),
+                                afterImage:imageStr2
+                            }
+                        );
+                Navigate(Screen_true,ScreenTransition.Fade)
+                
+        PCFTeamsTheme: =TeamsTheme.Default
+        Text: ="はい"
+        Visible: =popup
+        Width: =150
+        X: =Parent.Width/2-Self.Width/2
+        Y: =Parent.Height/3+150
+        ZIndex: =24
+
+    ButtonAno As ボタン:
+        DisplayMode: =DisplayMode.Edit
+        FontSize: =26
+        Height: =70
+        OnSelect: =Set(popup,false)
+        PCFTeamsTheme: =TeamsTheme.Default
+        Text: ="いいえ"
+        Visible: =popup
+        Width: =150
+        X: =Parent.Width/2-Self.Width/2
+        Y: =Parent.Height/3+300
+        ZIndex: =25
+
+    LbSubmitA As ラベル:
+        AutoHeight: =false
+        DisplayMode: =DisplayMode.Edit
+        FontSize: =20
+        Height: =46
+        PCFTeamsTheme: =TeamsTheme.Default
+        Text: ="登録"
+        Width: =59
+        X: =submitA.X+submitA.Width/2-Self.Width/2
+        Y: =100
+        ZIndex: =26
+
+    LbBackA As ラベル:
+        AutoHeight: =true
+        DisplayMode: =DisplayMode.Edit
+        FontSize: =20
+        Height: =50
+        PCFTeamsTheme: =TeamsTheme.Default
+        Text: ="戻る"
+        Width: =58
+        X: =21
+        Y: =100
+        ZIndex: =27
+
+    Group4 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =28
+
+        Rectangle3_1 As rectangle:
+            BorderColor: =RGBA(243, 242, 241, 1)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledFill: =RGBA(233, 232, 231, 1)
+            Fill: =RGBA(222, 221, 220, 1)
+            FocusedBorderColor: =RGBA(98, 100, 167, 1)
+            Height: =400
+            HoverFill: =RGBA(233, 232, 231, 1)
+            PressedFill: =RGBA(233, 232, 231, 1)
+            Visible: =popup
+            Width: =Parent.Width*80%
+            X: =Parent.Width/2-Self.Width/2
+            Y: =Parent.Height/3
+            ZIndex: =22
+
+        LbUpdateA As ラベル:
+            Alignment: =Align.Center
+            Color: =RGBA(49, 50, 83, 1)
+            DisplayMode: =DisplayMode.Edit
+            FontSize: =26
+            Height: =400
+            PCFTeamsTheme: =TeamsTheme.Default
+            Text: ="指定した日付には運転後データが存在します。上書きしますか？"
+            VerticalAlignment: =VerticalAlign.Top
+            Visible: =popup
+            Width: =Parent.Width*80%
+            Wrap: =true
+            X: =Parent.Width/2-Self.Width/2
+            Y: =Parent.Height/3
+            ZIndex: =23
+
+    AddMediaWithImage2 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =28
+
+        UploadedImage2 As image:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderThickness: =2
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            Height: =AddMediaButton2.Height
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Image: =If(IsBlank(AddMediaButton2.Media), SampleImage, AddMediaButton2.Media)
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            RadiusBottomLeft: =3
+            RadiusBottomRight: =3
+            RadiusTopLeft: =3
+            RadiusTopRight: =3
+            Visible: =If(HowCbA.Selected.Title = "IT",true,false)
+            Width: =AddMediaButton2.Width
+            X: =363
+            Y: =924
+            ZIndex: =29
+
+        AddMediaButton2 As addMedia:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(200, 198, 196, 1)
+            DisabledFill: =RGBA(243, 242, 241, 1)
+            Fill: =RGBA(98, 100, 167, 1)
+            Font: =Font.'Segoe UI'
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(98, 100, 167, 1), -10%)
+            PressedBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -50%)
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+            Size: =25
+            Text: ="タップまたはクリックしてカメラを起動"
+            UseMobileCamera: =true
+            Visible: =If(HowCbA.Selected.Title = "IT",true,false)
+            X: =363
+            Y: =924
+            ZIndex: =30
+
+    fvconv_2 As fvconv:
+        InputText: =TbTimeA.Value
+        ZIndex: =31
+

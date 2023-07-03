@@ -1,0 +1,39 @@
+{
+  "18c7f40c-b5f3-407d-9c23-cc450495fac4": {
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/shgogna/globalperconnector-train1/1.0.1639.3310/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://kfujimuraoffice365.sharepoint.com/sites/Test2": {
+        "dataSources": {
+          "運行安全管理者": {
+            "tableName": "8024dcf6-a0bb-44fe-b4cd-f1aad92b61d7"
+          },
+          "確認方法": {
+            "tableName": "25e55796-7a7b-416f-ab7f-0a36ce9eb231"
+          },
+          "社員マスタ": {
+            "tableName": "bf3777b6-27aa-401c-b2a8-009c2d156422"
+          },
+          "酒気帯び確認データ": {
+            "tableName": "059ba61f-a8a6-4051-aabe-4a7b153ebe4e"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "酒気帯び確認データ",
+      "社員マスタ",
+      "運行安全管理者",
+      "確認方法"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "18c7f40c-b5f3-407d-9c23-cc450495fac4"
+  }
+}

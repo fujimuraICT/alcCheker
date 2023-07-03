@@ -1,0 +1,148 @@
+{
+  "ComponentAllowCustomization": true,
+  "ComponentChangedSinceFileImport": true,
+  "ComponentDefinitionInfo": {
+    "AllowAccessToGlobals": false,
+    "Children": [],
+    "ControlPropertyState": [
+      "Fill",
+      {
+        "AFDDataSourceName": "",
+        "AutoRuleBindingEnabled": false,
+        "AutoRuleBindingString": "",
+        "InvariantPropertyName": "Height",
+        "IsLockable": false,
+        "NameMapSourceSchema": "?"
+      },
+      {
+        "AFDDataSourceName": "",
+        "AutoRuleBindingEnabled": false,
+        "AutoRuleBindingString": "",
+        "InvariantPropertyName": "Width",
+        "IsLockable": false,
+        "NameMapSourceSchema": "?"
+      },
+      "X",
+      "Y",
+      "ZIndex",
+      "InputText",
+      "Mapping",
+      {
+        "AFDDataSourceName": "",
+        "AutoRuleBindingEnabled": false,
+        "AutoRuleBindingString": "\"テキスト\"",
+        "InvariantPropertyName": "FullToHalf",
+        "IsLockable": false,
+        "NameMapSourceSchema": "?"
+      }
+    ],
+    "LastModifiedTimestamp": "638239525343216653",
+    "Name": "fvconv",
+    "Rules": [
+      {
+        "Category": "Data",
+        "InvariantScript": "\"テキスト\"",
+        "Property": "InputText",
+        "RuleProviderType": "System"
+      },
+      {
+        "Category": "Data",
+        "InvariantScript": "Table({fullWidth:\"！\",halfWidth:\"!\"},\r\n{fullWidth:\"＂\",halfWidth:\"\"\"\"},\r\n{fullWidth:\"＃\",halfWidth:\"#\"},\r\n{fullWidth:\"＄\",halfWidth:\"$\"},\r\n{fullWidth:\"％\",halfWidth:\"%\"},\r\n{fullWidth:\"＆\",halfWidth:\"&\"},\r\n{fullWidth:\"＇\",halfWidth:\"'\"},\r\n{fullWidth:\"（\",halfWidth:\"(\"},\r\n{fullWidth:\"）\",halfWidth:\")\"},\r\n{fullWidth:\"＊\",halfWidth:\"*\"},\r\n{fullWidth:\"＋\",halfWidth:\"+\"},\r\n{fullWidth:\"，\",halfWidth:\",\"},\r\n{fullWidth:\"－\",halfWidth:\"-\"},\r\n{fullWidth:\"．\",halfWidth:\".\"},\r\n{fullWidth:\"／\",halfWidth:\"/\"},\r\n{fullWidth:\"０\",halfWidth:\"0\"},\r\n{fullWidth:\"１\",halfWidth:\"1\"},\r\n{fullWidth:\"２\",halfWidth:\"2\"},\r\n{fullWidth:\"３\",halfWidth:\"3\"},\r\n{fullWidth:\"４\",halfWidth:\"4\"},\r\n{fullWidth:\"５\",halfWidth:\"5\"},\r\n{fullWidth:\"６\",halfWidth:\"6\"},\r\n{fullWidth:\"７\",halfWidth:\"7\"},\r\n{fullWidth:\"８\",halfWidth:\"8\"},\r\n{fullWidth:\"９\",halfWidth:\"9\"},\r\n{fullWidth:\"：\",halfWidth:\":\"},\r\n{fullWidth:\"；\",halfWidth:\";\"},\r\n{fullWidth:\"＜\",halfWidth:\"<\"},\r\n{fullWidth:\"＝\",halfWidth:\"=\"},\r\n{fullWidth:\"＞\",halfWidth:\">\"},\r\n{fullWidth:\"？\",halfWidth:\"?\"},\r\n{fullWidth:\"＠\",halfWidth:\"@\"},\r\n{fullWidth:\"Ａ\",halfWidth:\"A\"},\r\n{fullWidth:\"Ｂ\",halfWidth:\"B\"},\r\n{fullWidth:\"Ｃ\",halfWidth:\"C\"},\r\n{fullWidth:\"Ｄ\",halfWidth:\"D\"},\r\n{fullWidth:\"Ｅ\",halfWidth:\"E\"},\r\n{fullWidth:\"Ｆ\",halfWidth:\"F\"},\r\n{fullWidth:\"Ｇ\",halfWidth:\"G\"},\r\n{fullWidth:\"Ｈ\",halfWidth:\"H\"},\r\n{fullWidth:\"Ｉ\",halfWidth:\"I\"},\r\n{fullWidth:\"Ｊ\",halfWidth:\"J\"},\r\n{fullWidth:\"Ｋ\",halfWidth:\"K\"},\r\n{fullWidth:\"Ｌ\",halfWidth:\"L\"},\r\n{fullWidth:\"Ｍ\",halfWidth:\"M\"},\r\n{fullWidth:\"Ｎ\",halfWidth:\"N\"},\r\n{fullWidth:\"Ｏ\",halfWidth:\"O\"},\r\n{fullWidth:\"Ｐ\",halfWidth:\"P\"},\r\n{fullWidth:\"Ｑ\",halfWidth:\"Q\"},\r\n{fullWidth:\"Ｒ\",halfWidth:\"R\"},\r\n{fullWidth:\"Ｓ\",halfWidth:\"S\"},\r\n{fullWidth:\"Ｔ\",halfWidth:\"T\"},\r\n{fullWidth:\"Ｕ\",halfWidth:\"U\"},\r\n{fullWidth:\"Ｖ\",halfWidth:\"V\"},\r\n{fullWidth:\"Ｗ\",halfWidth:\"W\"},\r\n{fullWidth:\"Ｘ\",halfWidth:\"X\"},\r\n{fullWidth:\"Ｙ\",halfWidth:\"Y\"},\r\n{fullWidth:\"Ｚ\",halfWidth:\"Z\"},\r\n{fullWidth:\"［\",halfWidth:\"[\"},\r\n{fullWidth:\"＼\",halfWidth:\"\\\"},\r\n{fullWidth:\"］\",halfWidth:\"]\"},\r\n{fullWidth:\"＾\",halfWidth:\"^\"},\r\n{fullWidth:\"＿\",halfWidth:\"_\"},\r\n{fullWidth:\"｀\",halfWidth:\"`\"},\r\n{fullWidth:\"ａ\",halfWidth:\"a\"},\r\n{fullWidth:\"ｂ\",halfWidth:\"b\"},\r\n{fullWidth:\"ｃ\",halfWidth:\"c\"},\r\n{fullWidth:\"ｄ\",halfWidth:\"d\"},\r\n{fullWidth:\"ｅ\",halfWidth:\"e\"},\r\n{fullWidth:\"ｆ\",halfWidth:\"f\"},\r\n{fullWidth:\"ｇ\",halfWidth:\"g\"},\r\n{fullWidth:\"ｈ\",halfWidth:\"h\"},\r\n{fullWidth:\"ｉ\",halfWidth:\"i\"},\r\n{fullWidth:\"ｊ\",halfWidth:\"j\"},\r\n{fullWidth:\"ｋ\",halfWidth:\"k\"},\r\n{fullWidth:\"ｌ\",halfWidth:\"l\"},\r\n{fullWidth:\"ｍ\",halfWidth:\"m\"},\r\n{fullWidth:\"ｎ\",halfWidth:\"n\"},\r\n{fullWidth:\"ｏ\",halfWidth:\"o\"},\r\n{fullWidth:\"ｐ\",halfWidth:\"p\"},\r\n{fullWidth:\"ｑ\",halfWidth:\"q\"},\r\n{fullWidth:\"ｒ\",halfWidth:\"r\"},\r\n{fullWidth:\"ｓ\",halfWidth:\"s\"},\r\n{fullWidth:\"ｔ\",halfWidth:\"t\"},\r\n{fullWidth:\"ｕ\",halfWidth:\"u\"},\r\n{fullWidth:\"ｖ\",halfWidth:\"v\"},\r\n{fullWidth:\"ｗ\",halfWidth:\"w\"},\r\n{fullWidth:\"ｘ\",halfWidth:\"x\"},\r\n{fullWidth:\"ｙ\",halfWidth:\"y\"},\r\n{fullWidth:\"ｚ\",halfWidth:\"z\"},\r\n{fullWidth:\"｛\",halfWidth:\"{\"},\r\n{fullWidth:\"｜\",halfWidth:\"|\"},\r\n{fullWidth:\"｝\",halfWidth:\"}\"},\r\n{fullWidth:\"～\",halfWidth:\"~\"},\r\n{fullWidth:\"\u3000\",halfWidth:\" \"})",
+        "Property": "Mapping",
+        "RuleProviderType": "System"
+      },
+      {
+        "Category": "Data",
+        "InvariantScript": "Concat(ForAll(ForAll(Split(fvconv.InputText,\"\"), {Result: ThisRecord.Value}),If(!IsBlank(LookUp(fvconv.Mapping,fullWidth=Result)),Replace(Result,1,1,LookUp(fvconv.Mapping,fullWidth=Result).halfWidth),Result)),Value)",
+        "Property": "FullToHalf",
+        "RuleProviderType": "System"
+      },
+      {
+        "Category": "Design",
+        "InvariantScript": "1",
+        "Property": "ZIndex",
+        "RuleProviderType": "Unknown"
+      },
+      {
+        "Category": "Design",
+        "InvariantScript": "0",
+        "Property": "Y",
+        "RuleProviderType": "Unknown"
+      },
+      {
+        "Category": "Design",
+        "InvariantScript": "0",
+        "Property": "X",
+        "RuleProviderType": "Unknown"
+      },
+      {
+        "Category": "Design",
+        "InvariantScript": "10",
+        "Property": "Width",
+        "RuleProviderType": "Unknown"
+      },
+      {
+        "Category": "Design",
+        "InvariantScript": "10",
+        "Property": "Height",
+        "RuleProviderType": "Unknown"
+      },
+      {
+        "Category": "Design",
+        "InvariantScript": "RGBA(0, 0, 0, 0)",
+        "Property": "Fill",
+        "RuleProviderType": "System"
+      }
+    ]
+  },
+  "ComponentManifest": {
+    "AllowAccessToGlobals": false,
+    "AllowCustomization": true,
+    "Description": "",
+    "Name": "fvconv",
+    "TemplateGuid": "0d7961be50794f5da121d27d2434cc7d"
+  },
+  "ComponentType": "CanvasComponent",
+  "CustomGroupControlTemplateName": "",
+  "CustomProperties": [
+    {
+      "Category": 0,
+      "DisplayName": "InputText",
+      "Hidden": false,
+      "Name": "InputText",
+      "PropertyDataTypeKey": "String",
+      "Tooltip": "カスタム プロパティ",
+      "Type": "{\"Version\":\"1.332\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "Mapping",
+      "Hidden": false,
+      "Name": "Mapping",
+      "PropertyDataTypeKey": "Table",
+      "Tooltip": "カスタム プロパティ",
+      "Type": "{\"Version\":\"1.332\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Table\",\"EnumString\":\"\",\"Type\":[{\"Name\":\"fullWidth\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"halfWidth\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "FullToHalf",
+      "Hidden": true,
+      "Name": "FullToHalf",
+      "PropertyDataTypeKey": "String",
+      "Tooltip": "カスタム プロパティ",
+      "Type": "{\"Version\":\"1.332\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    }
+  ],
+  "FirstParty": true,
+  "Id": "http://microsoft.com/appmagic/Component",
+  "IsComponentLocked": false,
+  "IsComponentTemplate": true,
+  "IsCustomGroupControlTemplate": false,
+  "IsPcfControl": false,
+  "IsPremiumPcfControl": false,
+  "IsWidgetTemplate": false,
+  "LastModifiedTimestamp": "638239525343216653",
+  "Name": "0d7961be50794f5da121d27d2434cc7d",
+  "OverridableProperties": {},
+  "Version": "638107491826023650"
+}

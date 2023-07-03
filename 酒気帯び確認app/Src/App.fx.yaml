@@ -1,0 +1,22 @@
+App As appinfo:
+    BackEnabled: =true
+    OnStart: |
+        =ClearCollect(com_col,社員マスタ);
+        ClearCollect(how_col,確認方法);
+        ClearCollect(check_col,運行安全管理者);
+    StartScreen: =Screen_top
+
+    Host As hostControl.DefaultHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+
+    Teams As hostControl.TeamsHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+
